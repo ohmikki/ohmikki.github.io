@@ -8,13 +8,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --bg-color: #0f172a;
-            --card-bg: #1e293b;
-            --accent-color: #e11d48;
-            --accent-hover: #f43f5e;
-            --text-color: #f8fafc;
-            --text-muted: #94a3b8;
-            --disabled-bg: #334155;
+            --bg-color: #fdfbf7;        /* Cream background matching header */
+            --card-bg: #ffffff;          /* White cards for contrast */
+            --accent-color: #f472b6;      /* Vibrant pink matching brushstroke */
+            --accent-hover: #ec4899;      /* Darker pink on hover */
+            --text-color: #1e293b;        /* Soft black for dark text */
+            --text-muted: #64748b;      /* Slate grey for secondary text */
+            --border-color: #f1f5f9;    /* Light card borders */
+            --disabled-bg: #f1f5f9;      /* Disabled button background */
         }
 
         * {
@@ -36,31 +37,26 @@
 
         .container {
             width: 100%;
-            max-width: 420px;
+            max-width: 440px;
             text-align: center;
         }
 
-        .profile-img {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            margin-bottom: 16px;
-            border: 3px solid var(--accent-color);
-            object-fit: cover;
-            box-shadow: 0 4px 14px rgba(225, 29, 72, 0.3);
-        }
-
-        h1 {
-            font-size: 1.6rem;
-            font-weight: 700;
-            margin-bottom: 6px;
+        .header-banner {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            display: block;
         }
 
         .bio {
             color: var(--text-muted);
             font-size: 0.95rem;
             margin-bottom: 28px;
-            line-height: 1.4;
+            line-height: 1.5;
+            padding: 0 10px;
         }
 
         .links {
@@ -80,22 +76,28 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease, color 0.2s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+            border: 1px solid var(--border-color);
         }
 
         .link-card:not(.disabled):hover {
             transform: translateY(-2px);
             background-color: var(--accent-color);
-            box-shadow: 0 6px 15px rgba(225, 29, 72, 0.3);
+            color: #ffffff;
+            box-shadow: 0 6px 16px rgba(244, 114, 182, 0.3);
+            border-color: var(--accent-color);
+        }
+
+        .link-card:not(.disabled):hover i {
+            color: #ffffff !important;
         }
 
         .link-card.disabled {
             background-color: var(--disabled-bg);
             color: var(--text-muted);
             cursor: not-allowed;
-            opacity: 0.7;
+            opacity: 0.75;
         }
 
         .link-info {
@@ -106,14 +108,16 @@
         }
 
         .link-info i {
-            font-size: 1.2rem;
+            font-size: 1.25rem;
             width: 24px;
+            transition: color 0.2s ease;
         }
 
         .badge {
             font-size: 0.75rem;
-            background-color: rgba(255, 255, 255, 0.1);
-            padding: 4px 8px;
+            background-color: #e2e8f0;
+            color: var(--text-muted);
+            padding: 4px 10px;
             border-radius: 20px;
             font-weight: 500;
         }
@@ -127,13 +131,12 @@
 <body>
 
     <div class="container">
-        <!-- Profile Section -->
-        <!-- Replace avatar.jpg with her profile picture URL or local image in repository -->
-        <img src="avatar.jpg" alt="Oh Mikki" class="profile-img">
-        <h1>Oh Mikki</h1>
-        <p class="bio">Welcome! Check out my YouTube videos and follow along on Instagram.</p>
+        <!-- Direct URL Header Banner -->
+        <img src="https://yt3.googleusercontent.com/b9Is29UJRbvYOqauIHXPRqj2AXMKAX3FonR64-Jm9NB6OFkf1xl09XhVrOcE0LIEbxgGfukC=w2276-fcrop64=1,00005a57ffffa5a8-k-c0xffffffff-no-nd-rj" alt="Oh, Mikki Header" class="header-banner">
+        
+        <p class="bio">Welcome! Check out my latest videos on YouTube and follow along on Instagram.</p>
 
-        <!-- Social Links -->
+        <!-- Social & Contact Links -->
         <div class="links">
             <!-- YouTube -->
             <a href="https://youtube.com/@ohmikki?si=Lnu12AH5-Ux8p-h4" target="_blank" rel="noopener noreferrer" class="link-card">
@@ -161,6 +164,15 @@
                 </div>
                 <span class="badge">Coming Soon</span>
             </div>
+
+            <!-- Email Contact -->
+            <a href="mailto:mikki@ohmikki.com" class="link-card">
+                <div class="link-info">
+                    <i class="fa-solid fa-envelope" style="color: #f472b6;"></i>
+                    <span>Email Me</span>
+                </div>
+                <i class="fa-solid fa-paper-plane" style="font-size: 0.8rem; opacity: 0.6;"></i>
+            </a>
         </div>
 
         <footer>
